@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Syvaq | Women's Safety App – Confidence, Carried With You
+    </title>
+    <meta
+      name="description"
+      content="Syvaq is a smart, discreet safety app for women—offering real-time alerts, location sharing, and voice-activated tools. Confidence, carried with you."
+    />
+
+    <!-- OG Meta Tags for Social Sharing -->
+    <meta property="og:title" content="Syvaq | Confidence, carried with you." />
+    <meta
+      property="og:description"
+      content="Smart, discreet safety tools built for women's everyday instincts—whether walking home, traveling, or dating."
+    />
+    <meta property="og:image" content="https://syvaq.com/og-image.jpg" />
+    <meta property="og:url" content="https://syvaq.com" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Favicon using your company icon -->
+    <link
+      rel="icon"
+      href="./Assets/syvaq-icon-dark.svg"
+      type="image/svg+xml"
+      title="Syvaq icon"
+    />
+    <link
+      rel="shortcut icon"
+      href="./Assets/favicon.ico"
+      type="image/x-icon"
+    />
+
+    <!-- Google Fonts: Poppins (sans) and Source Serif Pro (serif) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Source+Serif+Pro:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-yH/6L5h4173mS5DwvCAHRFiRl4bL8LrNhsCF+QBWv3TFA2k0cx+Y4KYOjHOO9qHwzGIPHUnTSTgyJq3c1x9KfQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <style>
+      @media (max-width: 360px) {
+        .waitlist-form,
+        .waitlist-form-bottom {
+          flex-direction: column;
+          align-items: stretch;
+        }
+        .waitlist-form input[type="email"],
+        .waitlist-form button,
+        .waitlist-form-bottom input[type="email"],
+        .waitlist-form-bottom button {
+          width: 100%;
+          margin-bottom: 10px;
+        }
+      }
+
+      /* Enable smooth scroll */
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 90px;
+      }
+
+      /* Global Variables & Setup */
+      :root {
+        --dark: #141039;
+        --accent: #e98973;
+        --light: #ffffff;
+        --transition-speed: 0.3s;
+        --font-sans: "Poppins", "Helvetica Neue", Helvetica, sans-serif;
+        --font-serif: "Source Serif Pro", serif;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: var(--font-sans);
+        line-height: 1.6;
+        background: var(--light);
+        color: var(--dark);
+        overflow-x: hidden;
+      }
+
+      section + section {
+        border-top: 1px solid #f0f0f0;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      /* Visually hidden class for accessibility */
+      .visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        border: 0;
+        clip: rect(0 0 0 0);
+        overflow: hidden;
+      }
+
+      /* Fade-up effect for scroll-triggered animations */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      }
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* NAVIGATION */
+      .navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: var(--light);
+        padding: 15px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+        transition: box-shadow 0.3s ease;
+      }
+      /* Navbar shadow when scrolling */
+      .navbar.scrolled {
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      }
+      .navbar .logo img {
+        height: 40px;
+      }
+      .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+      }
+      .nav-links li a {
+        font-weight: 600;
+        transition: color var(--transition-speed);
+      }
+      .nav-links li a:hover {
+        color: var(--accent);
+      }
+      .primary-btn {
+        background: var(--accent);
+        color: var(--light);
+        padding: 10px 20px;
+        border-radius: 25px;
+        font-weight: 700;
+        cursor: pointer;
+        /* Added letter-spacing */
+        letter-spacing: 0.5px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      /* Slower hover for a softer glide */
+      .primary-btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 12px rgba(233, 137, 115, 0.6);
+        transition-duration: 0.4s;
+      }
+      .primary-btn small {
+        font-weight: 400;
+        font-size: 0.7rem;
+        letter-spacing: 0.2px;
+        display: block;
+        margin-top: 2px;
+        opacity: 0.9;
+      }
+      .btn-icon {
+        height: 1.3em;
+      }
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+          box-shadow: 0 0 8px rgba(233, 137, 115, 0.5);
+        }
+        50% {
+          transform: scale(1.05);
+          box-shadow: 0 0 16px rgba(233, 137, 115, 0.8);
+        }
+        100% {
+          transform: scale(1);
+          box-shadow: 0 0 8px rgba(233, 137, 115, 0.5);
+        }
+      }
+
+      .pulse-animation {
+        animation: pulse 2s infinite ease-in-out;
+      }
+
+      /* HERO SECTION */
+      #hero {
+        /* Gradient background with optional texture overlay.
+         Replace 'path/to/texture.png' with your texture image URL.
+         Comment out the texture URL if not in use. */
+        /* background: 
+        linear-gradient(135deg, rgba(255,255,255,0.9), rgba(254,247,242,0.9)),
+        url('path/to/texture.png');
+      background-blend-mode: overlay;
+      Alternatively:
+         background: linear-gradient(135deg, #ffffff, #fef7f2); */
+        background: var(--light);
+        padding: 120px 20px 60px; /* Adjusted padding for navbar */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--dark);
+      }
+      .hero-container {
+        max-width: 1200px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        min-height: unset; /* Tightened flow to Our Story */
+      }
+      .hero-left,
+      .hero-right {
+        flex: 1 1 500px;
+      }
+
+      /* Hero Left: Text, Waitlist Form & Tagline */
+      .hero-left {
+        text-align: left;
+        padding: 0 20px;
+      }
+      /* Optional one-liner subheading above the headline */
+      .hero-subheading {
+        font-size: 1rem;
+        color: var(--dark);
+        margin-bottom: 10px;
+        font-weight: 500;
+      }
+      .hero-left h1 {
+        font-size: 3.2rem;
+        font-family: var(--font-serif);
+        font-weight: 700;
+        letter-spacing: 1px;
+        margin-bottom: 20px;
+      }
+      .gradient-text {
+        background: linear-gradient(90deg, #e98973, #f7c1b1);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-weight: 700;
+      }
+      .hero-left p {
+        font-size: 1.1rem;
+        font-style: italic;
+        margin-bottom: 10px;
+      }
+      .tagline {
+        font-size: 1rem;
+        color: var(--accent);
+        margin-bottom: 20px;
+      }
+      .waitlist-form {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+      .waitlist-form input[type="email"] {
+        padding: 15px 20px;
+        border: 2px solid var(--accent);
+        border-radius: 25px;
+        font-size: 1rem;
+        width: 300px;
+        max-width: 90%;
+        outline: none;
+        transition: border var(--transition-speed);
+      }
+      .waitlist-form input[type="email"]:focus {
+        border-color: var(--dark);
+      }
+      .waitlist-form button {
+        padding: 15px 25px;
+        border: 2px solid transparent;
+        border-radius: 25px;
+        background: var(--accent);
+        color: var(--light);
+        font-weight: 700;
+        font-size: 1rem;
+        letter-spacing: 0.5px;
+        cursor: pointer;
+        transition: background var(--transition-speed),
+          transform var(--transition-speed);
+      }
+      .waitlist-form button:hover {
+        transform: scale(1.05);
+      }
+      .launch-date {
+        font-size: 1rem;
+        color: var(--accent);
+        margin-top: 10px;
+        font-weight: 500;
+      }
+      .success-message {
+        display: none;
+        margin-top: 15px;
+        padding: 15px;
+        background: var(--accent);
+        color: var(--light);
+        font-weight: bold;
+        border-radius: 10px;
+        text-align: center;
+        animation: fadeIn 0.5s ease-in-out;
+      }
+      /* Success message uses aria-live for accessibility (added in HTML below) */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      /* Trusted By micro-row */
+      .trusted-by {
+        margin-top: 30px; /* Increased spacing */
+        text-align: center;
+        font-size: 0.9rem;
+        color: var(--dark);
+      }
+      .trusted-by span {
+        margin: 0 5px;
+        opacity: 0.7;
+      }
+      .trusted-by img {
+        height: 30px;
+        opacity: 0.8;
+        vertical-align: middle;
+        margin: 0 5px;
+      }
+      /* Hero Right Icon */
+      .hero-right {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .hero-right img {
+        max-width: 90%;
+        height: auto;
+        animation: float 3s ease-in-out infinite;
+        filter: drop-shadow(0 10px 15px rgba(20, 16, 57, 0.1));
+      }
+      @keyframes float {
+        from {
+          transform: translateY(0px);
+        }
+        to {
+          transform: translateY(-10px);
+        }
+      }
+
+      .hero-right img:hover {
+        transform: rotate(-2deg) scale(1.02);
+        transition: transform 0.3s ease;
+      }
+
+      /* Animated Scroll Cue */
+      .scroll-cue {
+        text-align: center;
+        margin-top: 40px;
+        font-size: 2rem;
+        color: var(--accent);
+        animation: bounce 1.5s infinite;
+        opacity: 0.9;
+      }
+      .scroll-cue i {
+        text-shadow: 0 0 8px rgba(233, 137, 115, 0.4);
+      }
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(8px);
+        }
+      }
+
+      /* SECTION HEADERS */
+      .section-header {
+        text-align: center;
+        font-family: var(--font-serif);
+        font-weight: 700;
+        font-size: 2.8rem;
+        margin-bottom: 20px; /* Reduced for tighter rhythm */
+        position: relative;
+        line-height: 1.2;
+      }
+      .section-header::after {
+        content: "";
+        display: block;
+        width: 50px;
+        height: 3px;
+        background: linear-gradient(to right, #e98973, #f7c1b1);
+        margin: 10px auto 20px;
+        border-radius: 3px;
+      }
+
+      /* OUR STORY SECTION */
+      #our-story {
+        padding: 40px 20px;
+        text-align: center;
+      }
+      #our-story p {
+        max-width: 800px;
+        margin: 0 auto 20px;
+        font-size: 1.1rem;
+      }
+
+      /* FEATURES SECTION */
+      #features {
+        padding: 40px 20px;
+        background: #f9f9f9;
+        text-align: center;
+      }
+      .features-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+        max-width: 700px;
+        margin: 0 auto;
+      }
+      .feature-card {
+        background: var(--light);
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        transition: all 0.2s ease-in-out;
+      }
+      @media (min-width: 600px) {
+        .features-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      .feature-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+      }
+      .feature-card h3 {
+        margin-bottom: 15px;
+        font-size: 1.6rem;
+        font-weight: 700;
+      }
+      .feature-card p {
+        font-size: 1rem;
+        font-style: italic;
+      }
+
+      /* COMING SOON SECTION */
+      #coming-soon {
+        padding: 40px 20px;
+        background: var(--light);
+        text-align: center;
+      }
+      #coming-soon .mockup-section {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+        margin-top: 20px;
+      }
+      .coming-soon-card {
+        background: #f0f0f0;
+        border-radius: 10px;
+        padding: 20px;
+        width: 300px;
+        height: 220px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: #a0a0a0;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        transition: transform var(--transition-speed);
+      }
+      .coming-soon-card:hover {
+        transform: translateY(-5px);
+        background: linear-gradient(to bottom, #f0f0f0, #e5e5e5);
+      }
+      .coming-soon-card .card-title {
+        font-size: 1.4rem;
+        color: #888;
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+      .coming-soon-card i {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+      }
+      .coming-soon-card .preview-text {
+        font-size: 1rem;
+        font-style: italic;
+      }
+
+      /* HOW IT WORKS SECTION */
+      #how-it-works {
+        padding: 40px 20px;
+        text-align: center;
+      }
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .step {
+        background: var(--light);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        transition: transform var(--transition-speed);
+      }
+      .step:hover {
+        cursor: pointer;
+        transform: translateY(-3px) scale(1.02);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      }
+      .step-icon {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+        color: var(--accent);
+      }
+      .step h3 {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+        font-weight: 700;
+      }
+      .step p {
+        font-size: 0.95rem;
+      }
+
+      /* TESTIMONIALS SECTION */
+      #testimonials {
+        padding: 40px 20px;
+        background: #f9f9f9;
+        text-align: center;
+      }
+      .testimonial-slider {
+        display: flex;
+        overflow-x: auto;
+        gap: 30px;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 20px;
+        justify-content: flex-start;
+        position: relative;
+        padding-left: 15px;
+        padding-right: 15px;
+        cursor: grab;
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+      }
+      .testimonial-slider::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
+      }
+      .testimonial-slider:active {
+        cursor: grabbing;
+      }
+      .testimonial-slider::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 30px;
+        background: linear-gradient(to right, #f9f9f9, transparent);
+        pointer-events: none;
+        z-index: 2;
+      }
+      .testimonial-slider::after {
+        content: "→";
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 2rem;
+        color: var(--accent);
+        opacity: 0.4;
+        text-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
+        pointer-events: none;
+        z-index: 2;
+      }
+      .testimonial-cue {
+        text-align: center;
+        margin-top: 10px;
+        font-style: italic;
+        color: var(--accent);
+        font-size: 1rem;
+        font-weight: 500;
+      }
+      .testimonial {
+        flex: 0 0 300px;
+        background: var(--light);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        text-align: left;
+        scroll-snap-align: center;
+      }
+      .testimonial::before {
+        content: "“";
+        font-size: 2.5rem;
+        color: var(--accent);
+        opacity: 0.8;
+        display: block;
+        margin-bottom: -15px;
+      }
+      .testimonial p {
+        font-size: 1rem;
+        margin-bottom: 10px;
+        font-style: italic;
+        line-height: 1.8;
+      }
+      .testimonial .author {
+        font-weight: bold;
+        font-size: 0.9rem;
+        color: var(--accent);
+      }
+
+      /* WHY SYVAQ IS DIFFERENT SECTION */
+      #why-syvaq {
+        background-color: #fcf8f7; /* Very light blush */
+        padding: 40px 20px;
+      }
+      #why-syvaq .features-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        max-width: 1200px;
+      }
+
+      .primary-btn,
+      .waitlist-form button,
+      .waitlist-form-bottom button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+      }
+
+      /* PARTNERS SECTION */
+      #partners {
+        padding: 40px 20px;
+        text-align: center;
+      }
+      .partner-form-container {
+        max-width: 600px;
+        margin: 0 auto 40px;
+        text-align: left;
+        border: 2px dashed var(--accent);
+        padding: 20px;
+        border-radius: 10px;
+      }
+      .partner-form input,
+      .partner-form textarea,
+      .partner-form select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        font-size: 1rem;
+        border: 2px solid var(--accent);
+        border-radius: 5px;
+        outline: none;
+        transition: border-color var(--transition-speed);
+      }
+      .partner-form input:focus,
+      .partner-form textarea:focus,
+      .partner-form select:focus {
+        border-color: var(--dark);
+      }
+      .partner-form button {
+        display: block;
+        margin: 15px auto 0;
+        padding: 10px 20px;
+        background: var(--accent);
+        color: var(--light);
+        border: none;
+        border-radius: 5px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background var(--transition-speed);
+      }
+      .partner-form button:hover {
+        background: #d07363;
+      }
+      .partner-showcase {
+        text-align: center;
+        margin-top: 30px;
+      }
+
+      /* FEEDBACK SECTION */
+      #feedback {
+        padding: 40px 20px;
+        text-align: center;
+      }
+      .feedback-form-container {
+        max-width: 600px;
+        margin: 0 auto;
+        text-align: left;
+        border: 2px dashed var(--accent);
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 40px;
+      }
+      .feedback-form input,
+      .feedback-form textarea,
+      .feedback-form select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        font-size: 1rem;
+        border: 2px solid var(--accent);
+        border-radius: 5px;
+        outline: none;
+        transition: border-color var(--transition-speed);
+      }
+      .feedback-form input:focus,
+      .feedback-form textarea:focus,
+      .feedback-form select:focus {
+        border-color: var(--dark);
+      }
+      .feedback-form button {
+        display: block;
+        margin: 15px auto 0;
+        padding: 10px 20px;
+        background: var(--accent);
+        color: var(--light);
+        border: none;
+        border-radius: 5px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background var(--transition-speed);
+      }
+      .feedback-form button:hover {
+        background: #d07363;
+      }
+
+      /* FOOTER */
+      footer {
+        background: var(--dark);
+        color: var(--light);
+        padding: 40px 20px;
+        text-align: center;
+      }
+      footer .footer-links {
+        margin-bottom: 20px;
+      }
+      footer .footer-links a {
+        margin: 0 10px;
+        color: var(--light);
+        transition: color var(--transition-speed);
+        font-weight: bold;
+        font-size: 1rem;
+      }
+      footer .footer-links a:hover {
+        color: var(--accent);
+      }
+      footer p {
+        margin-bottom: 10px;
+        font-size: 0.95rem;
+      }
+      footer .made-for {
+        font-size: 0.9rem;
+        margin-top: 20px;
+      }
+
+      /* Back-to-Top Button */
+      #back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: var(--accent);
+        color: var(--light);
+        border: none;
+        border-radius: 50%;
+        padding: 10px 15px;
+        cursor: pointer;
+        display: none;
+        z-index: 200;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+      }
+      #back-to-top:hover {
+        opacity: 0.8;
+        transform: scale(1.1);
+      }
+
+      /* Mobile adjustments for small screens (around 320px) */
+      @media (max-width: 800px) {
+        .feature-card {
+          width: 100%;
+        }
+      }
+
+      /* Waitlist Form Bottom Styling Restored */
+      .waitlist-form-bottom {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 20px;
+      }
+      #waitlist {
+        margin-bottom: 48px; /* Add space below the waitlist section */
+      }
+      .waitlist-form-bottom input[type="email"] {
+        padding: 15px 20px;
+        border: 2px solid var(--accent);
+        border-radius: 25px;
+        font-size: 1rem;
+        width: 300px;
+        max-width: 90%;
+        outline: none;
+        transition: border-color var(--transition-speed);
+      }
+      .waitlist-form-bottom input[type="email"]:focus {
+        border-color: var(--dark);
+      }
+      .waitlist-form-bottom button {
+        padding: 15px 25px;
+        border: none;
+        border-radius: 25px;
+        background: var(--accent);
+        color: var(--light);
+        font-weight: 700;
+        font-size: 1rem;
+        letter-spacing: 0.5px;
+        cursor: pointer;
+        transition: transform var(--transition-speed);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .waitlist-form-bottom button:hover {
+        transform: scale(1.05);
+      }
+
+      #waitlist .section-header {
+        margin-top: 40px;
+      }
+
+      .logo-blur {
+        filter: blur(5px);
+        width: 90px;
+        height: auto;
+        opacity: 0.8;
+        border-radius: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="logo">
+        <img
+          src="./Assets/syvaq-logo-horizontal-slogan-dark.svg"
+          alt="Syvaq Logo"
+        />
+      </div>
+      <ul class="nav-links">
+        <li><a href="#hero" aria-label="Home Section">Home</a></li>
+        <li>
+          <a href="#our-story" aria-label="Our Story Section">Our Story</a>
+        </li>
+        <li>
+          <a href="#features" aria-label="Features Section">Features</a>
+        </li>
+        <li>
+          <a href="#how-it-works" aria-label="How It Works Section"
+            >How It Works</a
+          >
+        </li>
+        <li>
+          <a href="#partners" aria-label="Work With Us Section"
+            >Work With Us</a
+          >
+        </li>
+        <li>
+          <a href="#feedback" aria-label="Feedback Section">Feedback</a>
+        </li>
+      </ul>
+      <a
+        href="#waitlist"
+        class="primary-btn pulse-animation"
+        aria-label="Join the Waitlist"
+        ><div>
+          Join the Waitlist!
+          <small>Be the first to unlock exclusive tools.</small>
+        </div>
+        <img
+          src="./Assets/syvaq-icon-dark.svg"
+          alt=""
+          class="btn-icon"
+        /></a>
+    </nav>
+
+    <!-- HERO SECTION: Split Layout -->
+    <header id="hero" class="fade-in">
+      <div class="hero-container">
+        <div class="hero-left">
+          <!-- One-liner subheading above the headline -->
+          <p class="hero-subheading">
+            Reimagining personal safety for women everywhere.
+          </p>
+          <h1>
+            <span class="gradient-text">Confidence,</span> carried<br />with
+            you.
+          </h1>
+          <p>
+            <em>Smart, discreet, and built for instinct. Your daily safety
+              companion.</em>
+          </p>
+          <p class="tagline">
+            <em>For the moments your instincts matter most.</em>
+          </p>
+          <!-- Hidden label for accessibility -->
+          <form id="hero-waitlist-form" class="waitlist-form" action="https://formspree.io/f/xrbkyloe" method="POST">
+            <label for="hero-email" class="visually-hidden">Email Address</label>
+            <input
+              type="email"
+              id="hero-email"
+              name="email"
+              placeholder="Enter your email..."
+              required
+              autocomplete="email"
+            />
+            <button type="submit" aria-label="Join the Waitlist">
+              Join the Waitlist!
+              <img src="./Assets/syvaq-icon-dark.svg" alt="" class="btn-icon" />
+            </button>
+            <p id="hero-waitlist-status" style="margin-top:10px;"></p>
+          </form>
+          <!-- Trusted By micro-row -->
+          <div class="trusted-by">
+            <h2 style="text-align:center; margin-bottom: 24px;">Trusted by</h2>
+            <div style="display: flex; flex-direction: row; align-items: center; gap: 48px; justify-content: center;">
+              <img src="airbnb-logo-1-1-1386x1536.png" alt="Airbnb logo" class="logo-blur" />
+              <img src="Lyft-Logo-PNG-Transparent.png" alt="Lyft logo" class="logo-blur" />
+              <img src="Bumble-Logo.jpg" alt="Bumble logo" class="logo-blur" />
+            </div>
+          </div>
+          <!-- Scroll cue -->
+          <a href="#our-story" class="scroll-cue"
+            ><i class="fas fa-angle-down"></i
+          ></a>
+        </div>
+        <div class="hero-right">
+          <img
+            src="./Assets/syvaq-icon-dark.svg"
+            alt="Syvaq Icon"
+            title="Syvaq Shield Icon"
+          />
+        </div>
+      </div>
+    </header>
+
+    <!-- Our Story Section -->
+    <section id="our-story" class="fade-in">
+      <h2 class="section-header">Our Story</h2>
+      <p>
+        Syvaq was born from experience—and built <em>by women, for women</em>. We're
+        reimagining safety as ambient, supportive, and empowering. Every woman deserves to move
+        through the world confident and connected.
+      </p>
+    </section>
+
+    <!-- Features Overview Section -->
+    <section id="features" class="fade-in">
+      <h2 class="section-header">What Syvaq Offers</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <h3><i class="fas fa-shield-alt"></i> CommandCore™</h3>
+          <p>
+            Voice-activated SOS triggers, alerts, and realistic,
+            auto-triggered fake calls.
+          </p>
+        </div>
+        <div class="feature-card">
+          <h3><i class="fas fa-map-marker-alt"></i> TrailTrack™</h3>
+          <p>Real-time GPS sharing to keep your squad always in the loop.</p>
+        </div>
+        <div class="feature-card">
+          <h3><i class="fas fa-exclamation-triangle"></i> DriftAlert™</h3>
+          <p>Instant alerts when your route deviates unexpectedly.</p>
+        </div>
+        <div class="feature-card">
+          <h3><i class="fas fa-phone-alt"></i> SafeCircle™</h3>
+          <p>Quick emergency pings to keep your closest contacts safe.</p>
+        </div>
+      </div>
+      <p style="margin-top: 40px; font-style: italic">
+        Looking for more? Unlock extra safety features made for travel, nights
+        out, and first dates — designed to keep you supported wherever life
+        takes you.
+      </p>
+    </section>
+
+    <!-- Coming Soon Section (Mockups) -->
+    <section id="coming-soon" class="fade-in">
+      <h2 class="section-header">What We're Building</h2>
+      <p>
+        Get ready for exclusive previews—our next-gen mockups are on the way!
+      </p>
+      <div class="mockup-section">
+        <div class="coming-soon-card" title="Preview coming soon">
+          <i class="fas fa-mobile-alt"></i>
+          <div class="card-title">Mobile App UI</div>
+          <div class="preview-text">Preview coming soon</div>
+        </div>
+        <div class="coming-soon-card" title="Preview coming soon">
+          <i class="fas fa-laptop"></i>
+          <div class="card-title">Web Dashboard</div>
+          <div class="preview-text">Preview coming soon</div>
+        </div>
+        <div class="coming-soon-card" title="Preview coming soon">
+          <i class="fas fa-watch"></i>
+          <div class="card-title">Wearable Interface</div>
+          <div class="preview-text">Preview coming soon</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="fade-in">
+      <h2 class="section-header">How It Works</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-icon"><i class="fas fa-lightbulb"></i></div>
+          <h3>Feel</h3>
+          <p>Recognize when something's off.</p>
+        </div>
+        <div class="step">
+          <div class="step-icon"><i class="fas fa-signal"></i></div>
+          <h3>Signal</h3>
+          <p>Activate safety triggers instantly.</p>
+        </div>
+        <div class="step">
+          <div class="step-icon"><i class="fas fa-user-friends"></i></div>
+          <h3>Connect</h3>
+          <p>Alert your trusted contacts with a tap.</p>
+        </div>
+        <div class="step">
+          <div class="step-icon"><i class="fas fa-star"></i></div>
+          <h3>Empower</h3>
+          <p>Confidence is knowing you're never alone.</p>
+        </div>
+      </div>
+      <p style="font-size: 0.95rem; color: #999; margin-top: 20px">
+        From instinct to empowerment — this is how Syvaq supports you.
+      </p>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="fade-in">
+      <h2 class="section-header">Testimonials</h2>
+      <div class="testimonial-slider">
+        <div class="testimonial">
+          <p>
+            "Syvaq gives me the confidence to walk alone at night—it's like
+            having a guardian angel in my pocket!"
+          </p>
+          <div class="author">– Alex, New York</div>
+        </div>
+        <div class="testimonial">
+          <p>
+            "Discreet, intuitive, and fun—Syvaq redefines modern safety without
+            going over the top."
+          </p>
+          <div class="author">– Jamie, Los Angeles</div>
+        </div>
+        <div class="testimonial">
+          <p>
+            "I feel empowered every time I use Syvaq. It's smart, high-tech, and
+            totally in sync with my lifestyle!"
+          </p>
+          <div class="author">– Morgan, Chicago</div>
+        </div>
+        <div class="testimonial">
+          <p>
+            "Living in a smaller town, I didn't think I needed an app like this.
+            Now, it gives me peace of mind on my nightly jogs. A must-have."
+          </p>
+          <div class="author">– Chloe, Boulder</div>
+        </div>
+      </div>
+      <p class="testimonial-cue">Swipe to scroll</p>
+    </section>
+
+    <!-- Why Syvaq is Different Section -->
+    <section id="why-syvaq" class="fade-in">
+      <h2 class="section-header">Why Syvaq Is Different</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <h3><i class="fas fa-heartbeat"></i> Designed by Women</h3>
+          <p>
+            Every feature comes from real lived experience. We built what we
+            wish existed.
+          </p>
+        </div>
+        <div class="feature-card">
+          <h3><i class="fas fa-eye-slash"></i> Discreet by Design</h3>
+          <p>
+            Looks like a text. Acts like a shield. Safety without broadcasting
+            fear.
+          </p>
+        </div>
+        <div class="feature-card">
+          <h3><i class="fas fa-users"></i> Built for Solidarity</h3>
+          <p>
+            From community alerts to shared routes, Syvaq thrives when women
+            move together.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section id="partners" class="fade-in">
+      <h2 class="section-header">Work With Us</h2>
+      <div class="partner-form-container">
+        <form id="partner-form" class="partner-form" action="https://formspree.io/f/xrbkyyra" method="POST">
+          <input
+            type="text"
+            placeholder="Company Name"
+            required
+            autocomplete="organization"
+            name="company"
+          />
+          <input
+            type="text"
+            placeholder="Contact Person"
+            required
+            autocomplete="name"
+            name="contact"
+          />
+          <input
+            type="email"
+            placeholder="Email"
+            required
+            autocomplete="email"
+            name="email"
+          />
+          <input
+            type="tel"
+            placeholder="Phone Number"
+            autocomplete="tel"
+            name="phone"
+          />
+          <select required name="category">
+            <option value="">Which category best describes you?</option>
+            <option value="University">University</option>
+            <option value="Brand">Brand</option>
+            <option value="App">App</option>
+            <option value="Restaurant">Restaurant</option>
+            <option value="Other">Other</option>
+          </select>
+          <textarea placeholder="How can we collaborate?" rows="3" name="message"></textarea>
+          <button type="submit">Submit Inquiry</button>
+          <p id="partner-status" style="margin-top:10px; text-align:center;"></p>
+        </form>
+      </div>
+      <!-- <div class="partner-showcase"></div> -->
+      <div
+        style="
+          margin-top: 40px;
+          font-size: 0.9rem;
+          text-align: center;
+          color: #888;
+        "
+      >
+        Already backed by 3 industry advisors • Over 1,000 women on our
+        waitlist • 2025 launch planned across 20+ cities
+      </div>
+    </section>
+
+    <!-- Feedback Section -->
+    <section id="feedback" class="fade-in">
+      <h2 class="section-header">Feedback</h2>
+      <div class="feedback-form-container">
+        <form id="feedback-form" class="feedback-form" action="https://formspree.io/f/mrbkyyoa" method="POST">
+          <input
+            type="text"
+            placeholder="Your Name"
+            required
+            autocomplete="name"
+            name="name"
+          />
+          <input
+            type="email"
+            placeholder="Your Email"
+            required
+            autocomplete="email"
+            name="email"
+          />
+          <select required name="age-group">
+            <option value="">Age Group</option>
+            <option value="18-24">18-24</option>
+            <option value="25-34">25-34</option>
+            <option value="35-44">35-44</option>
+          </select>
+          <input type="text" placeholder="Closest City" required name="city" />
+          <textarea
+            placeholder="How would you use Syvaq?"
+            rows="3"
+            required
+            name="feedback"
+          ></textarea>
+          <button type="submit">Submit Feedback</button>
+          <p id="feedback-status" style="margin-top:10px; text-align:center;"></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- Repeated Waitlist Section -->
+    <section id="waitlist" class="fade-in">
+      <h2 class="section-header">Join the Waitlist</h2>
+      <form id="waitlist-form" class="waitlist-form-bottom" action="https://formspree.io/f/xrbkyloe" method="POST">
+        <label for="footer-email" class="visually-hidden">Email Address</label>
+        <input
+          type="email"
+          id="footer-email"
+          name="email"
+          placeholder="Enter your email..."
+          required
+          autocomplete="email"
+        />
+        <button type="submit" aria-label="Join the Waitlist">
+          Join the Waitlist!
+          <img src="./Assets/syvaq-icon-dark.svg" alt="" class="btn-icon" />
+        </button>
+        <p id="waitlist-status" style="margin-top:10px;"></p>
+      </form>
+    </section>
+
+    <!-- Back-to-Top Button -->
+    <button id="back-to-top" title="Back to top">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-links">
+        <a href="#our-story" aria-label="Our Story Section">About</a>
+        <a href="#features" aria-label="Features Section">Features</a>
+        <a href="#partners" aria-label="Work With Us Section"
+          >Work With Us</a
+        >
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="faq.html" aria-label="FAQ Page">FAQ</a>
+        <a href="support.html" aria-label="Support Page">Support</a>
+      </div>
+      <p>
+        Follow us:
+        <a href="https://www.tiktok.com/@syvaqapp" target="_blank">TikTok</a> |
+        <a href="https://www.instagram.com/syvaqapp" target="_blank"
+          >Instagram</a
+        >
+        |
+        <a
+          href="https://www.linkedin.com/company/syvaq-technologies"
+          target="_blank"
+          >LinkedIn</a
+        >
+      </p>
+      <p>© 2025 Syvaq Technologies, LLC. All rights reserved.</p>
+      <p>Contact: <a href="mailto:info@syvaq.com">info@syvaq.com</a></p>
+      <p class="made-for">Made for women. by women. ❤️</p>
+    </footer>
+
+    <script>
+      // Scroll-triggered fade-in using Intersection Observer
+      const faders = document.querySelectorAll(".fade-in");
+      const appearOptions = { threshold: 0.15 };
+
+      const appearOnScroll = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        });
+      }, appearOptions);
+
+      faders.forEach((fader) => {
+        appearOnScroll.observe(fader);
+      });
+
+      // Back-to-Top Button Logic
+      const backToTopButton = document.getElementById("back-to-top");
+      window.addEventListener("scroll", function () {
+        if (window.scrollY > window.innerHeight / 2)
+          backToTopButton.style.display = "block";
+        else backToTopButton.style.display = "none";
+      });
+      backToTopButton.addEventListener("click", function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      // Add a class to the navbar when scrolling for a subtle shadow effect
+      window.addEventListener("scroll", () => {
+        document
+          .querySelector(".navbar")
+          .classList.toggle("scrolled", window.scrollY > 20);
+      });
+
+      // Page load animation: add a "loaded" class to body when finished loading
+      window.addEventListener("load", () => {
+        document.body.classList.add("loaded");
+      });
+
+      function setupWaitlistAJAX(formId, statusId, successMsg) {
+        var form = document.getElementById(formId);
+        var status = document.getElementById(statusId);
+        if (!form || !status) return;
+        form.addEventListener("submit", function(event) {
+          event.preventDefault();
+          var data = new FormData(form);
+          fetch(form.action, {
+            method: form.method,
+            body: data,
+            headers: {
+              'Accept': 'application/json'
+            }
+          }).then(response => {
+            if (response.ok) {
+              status.innerHTML = successMsg;
+              form.reset();
+            } else {
+              response.json().then(data => {
+                if (Object.hasOwn(data, 'errors')) {
+                  status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
+                } else {
+                  status.innerHTML = "Oops! There was a problem submitting your form";
+                }
+              });
+            }
+          }).catch(error => {
+            status.innerHTML = "Oops! There was a problem submitting your form";
+          });
+        });
+      }
+      setupWaitlistAJAX("hero-waitlist-form", "hero-waitlist-status", "Welcome to the movement. We've got your back 💜");
+      setupWaitlistAJAX("waitlist-form", "waitlist-status", "Welcome to the movement. We've got your back 💜");
+      setupWaitlistAJAX("feedback-form", "feedback-status", "Thank you for your feedback! 💜");
+      setupWaitlistAJAX("partner-form", "partner-status", "Thank you for your submission!");
+    </script>
+  </body>
+</html>
