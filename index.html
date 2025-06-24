@@ -867,6 +867,68 @@
         opacity: 0.8;
         border-radius: 12px;
       }
+
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+        width: 32px;
+        height: 32px;
+        justify-content: center;
+        align-items: center;
+        z-index: 200;
+      }
+      .hamburger span {
+        display: block;
+        height: 4px;
+        width: 28px;
+        background: var(--dark);
+        margin: 4px 0;
+        border-radius: 2px;
+        transition: 0.3s;
+      }
+      @media (max-width: 900px) {
+        .nav-links {
+          position: fixed;
+          top: 65px;
+          right: 0;
+          background: var(--light);
+          flex-direction: column;
+          width: 200px;
+          height: calc(100vh - 65px);
+          align-items: flex-start;
+          gap: 0;
+          padding: 20px 0 0 20px;
+          box-shadow: -2px 0 8px rgba(0,0,0,0.08);
+          transform: translateX(100%);
+          transition: transform 0.3s ease;
+          z-index: 150;
+        }
+        .nav-links.open {
+          transform: translateX(0);
+        }
+        .navbar {
+          flex-wrap: wrap;
+          padding: 10px 10px;
+        }
+        .hamburger {
+          display: flex;
+        }
+      }
+      @media (max-width: 600px) {
+        #hero {
+          padding: 80px 10px 30px;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .hero-left h1 {
+          font-size: 2rem;
+        }
+        .hero-left {
+          padding: 0 5px;
+          text-align: left;
+        }
+      }
     </style>
   </head>
   <body>
@@ -878,7 +940,12 @@
           alt="Syvaq Logo"
         />
       </div>
-      <ul class="nav-links">
+      <div class="hamburger" id="hamburger-menu" aria-label="Open navigation" tabindex="0">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul class="nav-links" id="nav-links">
         <li><a href="#hero" aria-label="Home Section">Home</a></li>
         <li>
           <a href="#our-story" aria-label="Our Story Section">Our Story</a>
@@ -1364,6 +1431,18 @@
       setupWaitlistAJAX("waitlist-form", "waitlist-status", "Welcome to the movement. We've got your back 💜");
       setupWaitlistAJAX("feedback-form", "feedback-status", "Thank you for your feedback! 💜");
       setupWaitlistAJAX("partner-form", "partner-status", "Thank you for your submission!");
+
+      // Hamburger menu toggle
+      const hamburger = document.getElementById('hamburger-menu');
+      const navLinks = document.getElementById('nav-links');
+      hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+      });
+      hamburger.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          navLinks.classList.toggle('open');
+        }
+      });
     </script>
   </body>
 </html>
