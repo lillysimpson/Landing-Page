@@ -437,9 +437,9 @@
       }
       .features-grid {
         display: grid;
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(3, 1fr);
         gap: 30px;
-        max-width: 700px;
+        max-width: 1200px;
         margin: 0 auto;
       }
       .feature-card {
@@ -453,6 +453,11 @@
       @media (min-width: 600px) {
         .features-grid {
           grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (min-width: 900px) {
+        .features-grid {
+          grid-template-columns: repeat(3, 1fr);
         }
       }
       .feature-card:hover {
@@ -967,8 +972,8 @@
           >
         </li>
         <li>
-          <a href="#partners" aria-label="Work With Us Section"
-            >Work With Us</a
+          <a href="#partners" aria-label="Partner With Us Section"
+            >Partner With Us</a
           >
         </li>
         <li>
@@ -1026,6 +1031,9 @@
             </button>
             <p id="hero-waitlist-status" style="margin-top:10px;"></p>
           </form>
+          <p style="font-size: 0.85rem; color: #666; text-align: center; margin-top: 15px;">
+            First users may receive access to upcoming premium features. No spam, ever.
+          </p>
           <!-- Trusted By micro-row -->
           <div class="trusted-by">
             <h2 style="text-align:center; margin-bottom: 24px;">Trusted by</h2>
@@ -1064,56 +1072,19 @@
     <section id="features" class="fade-in">
       <h2 class="section-header">What Syvaq Offers</h2>
       <div class="features-grid">
-        <div class="feature-card">
-          <h3><i class="fas fa-shield-alt"></i> CommandCore™</h3>
-          <p>
-            Voice-activated SOS triggers, alerts, and realistic,
-            auto-triggered fake calls.
-          </p>
-        </div>
-        <div class="feature-card">
-          <h3><i class="fas fa-map-marker-alt"></i> TrailTrack™</h3>
-          <p>Real-time GPS sharing to keep your squad always in the loop.</p>
-        </div>
-        <div class="feature-card">
-          <h3><i class="fas fa-exclamation-triangle"></i> DriftAlert™</h3>
-          <p>Instant alerts when your route deviates unexpectedly.</p>
-        </div>
-        <div class="feature-card">
-          <h3><i class="fas fa-phone-alt"></i> SafeCircle™</h3>
-          <p>Quick emergency pings to keep your closest contacts safe.</p>
-        </div>
+        <div class="feature-card"><p>Share your live location with people you trust.</p></div>
+        <div class="feature-card"><p>Get silent SOS help — even without touching your phone.</p></div>
+        <div class="feature-card"><p>Know when your ride or route goes off track.</p></div>
+        <div class="feature-card"><p>Timed check-ins alert someone if you go quiet.</p></div>
+        <div class="feature-card"><p>Pick safer walking routes with real-world safety data.</p></div>
+        <div class="feature-card"><p>Trigger alerts with your voice, motion, or gestures.</p></div>
+        <div class="feature-card"><p>Ask Syvaq what to do when something feels off.</p></div>
+        <div class="feature-card"><p>Track your rides and stops — even hours later.</p></div>
+        <div class="feature-card"><p>Stay protected even when you lose signal.</p></div>
       </div>
       <p style="margin-top: 40px; font-style: italic">
-        Looking for more? Unlock extra safety features made for travel, nights
-        out, and first dates — designed to keep you supported wherever life
-        takes you.
+        Looking for more? Unlock extra safety tools made for travel, dating, and nights out — built to support you wherever life takes you.
       </p>
-    </section>
-
-    <!-- Coming Soon Section (Mockups) -->
-    <section id="coming-soon" class="fade-in">
-      <h2 class="section-header">What We're Building</h2>
-      <p>
-        Get ready for exclusive previews—our next-gen mockups are on the way!
-      </p>
-      <div class="mockup-section">
-        <div class="coming-soon-card" title="Preview coming soon">
-          <i class="fas fa-mobile-alt"></i>
-          <div class="card-title">Mobile App UI</div>
-          <div class="preview-text">Preview coming soon</div>
-        </div>
-        <div class="coming-soon-card" title="Preview coming soon">
-          <i class="fas fa-laptop"></i>
-          <div class="card-title">Web Dashboard</div>
-          <div class="preview-text">Preview coming soon</div>
-        </div>
-        <div class="coming-soon-card" title="Preview coming soon">
-          <i class="fas fa-watch"></i>
-          <div class="card-title">Wearable Interface</div>
-          <div class="preview-text">Preview coming soon</div>
-        </div>
-      </div>
     </section>
 
     <!-- How It Works Section -->
@@ -1189,7 +1160,7 @@
         <div class="feature-card">
           <h3><i class="fas fa-heartbeat"></i> Designed by Women</h3>
           <p>
-            Every feature comes from real lived experience. We built what we
+            Every feature comes from real experiences. We built what we
             wish existed.
           </p>
         </div>
@@ -1212,7 +1183,7 @@
 
     <!-- Partners Section -->
     <section id="partners" class="fade-in">
-      <h2 class="section-header">Work With Us</h2>
+      <h2 class="section-header">Partner With Us</h2>
       <div class="partner-form-container">
         <form id="partner-form" class="partner-form" action="https://formspree.io/f/xrbkyyra" method="POST">
           <input
@@ -1265,7 +1236,7 @@
         "
       >
         Already backed by 3 industry advisors • Over 1,000 women on our
-        waitlist • 2025 launch planned across 20+ cities
+        waitlist • 2026 launch planned across 20+ cities
       </div>
     </section>
 
@@ -1290,16 +1261,24 @@
           />
           <select required name="age-group">
             <option value="">Age Group</option>
-            <option value="18-24">18-24</option>
-            <option value="25-34">25-34</option>
-            <option value="35-44">35-44</option>
+            <option value="18-24">18–24</option>
+            <option value="25-34">25–34</option>
+            <option value="35-44">35–44</option>
+            <option value="44+">44+</option>
           </select>
           <input type="text" placeholder="Closest City" required name="city" />
+          <select required name="feedback">
+            <option value="">How would you use Syvaq?</option>
+            <option value="Solo travel">Solo travel</option>
+            <option value="First dates">First dates</option>
+            <option value="Nightlife">Nightlife</option>
+            <option value="Daily safety">Daily routines</option>
+            <option value="Other">Other</option>
+          </select>
           <textarea
-            placeholder="How would you use Syvaq?"
+            placeholder="Anything else you'd like to share? (optional)"
             rows="3"
-            required
-            name="feedback"
+            name="comments"
           ></textarea>
           <button type="submit">Submit Feedback</button>
           <p id="feedback-status" style="margin-top:10px; text-align:center;"></p>
@@ -1338,8 +1317,8 @@
       <div class="footer-links">
         <a href="#our-story" aria-label="Our Story Section">About</a>
         <a href="#features" aria-label="Features Section">Features</a>
-        <a href="#partners" aria-label="Work With Us Section"
-          >Work With Us</a
+        <a href="#partners" aria-label="Partner With Us Section"
+          >Partner With Us</a
         >
         <a href="privacy.html">Privacy</a>
         <a href="terms.html">Terms</a>
