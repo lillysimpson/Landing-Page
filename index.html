@@ -678,22 +678,37 @@
         padding: 20px;
         border-radius: 10px;
       }
-      .partner-form input,
-      .partner-form textarea,
-      .partner-form select {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 15px;
-        font-size: 1rem;
-        border: 2px solid var(--accent);
-        border-radius: 5px;
-        outline: none;
-        transition: border-color var(--transition-speed);
+      .partner-form,
+      .feedback-form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
       }
-      .partner-form input:focus,
-      .partner-form textarea:focus,
-      .partner-form select:focus {
-        border-color: var(--dark);
+      .partner-form input,
+      .partner-form select,
+      .partner-form textarea,
+      .feedback-form input,
+      .feedback-form select,
+      .feedback-form textarea {
+        font-family: var(--font-sans);
+        border: 2px solid #e98973;
+        border-radius: 6px;
+        padding: 14px 18px;
+        font-size: 1rem;
+        box-sizing: border-box;
+      }
+      .partner-form input::placeholder,
+      .partner-form textarea::placeholder,
+      .feedback-form input::placeholder,
+      .feedback-form textarea::placeholder {
+        color: #b9b9b9;
+        opacity: 1;
+      }
+      .partner-form button,
+      .feedback-form button,
+      .waitlist-form button,
+      .waitlist-form-bottom button {
+        /* Do not set font-family here, let them inherit or use their original font */
       }
       .partner-form button {
         display: block;
@@ -728,23 +743,6 @@
         padding: 20px;
         border-radius: 10px;
         margin-bottom: 40px;
-      }
-      .feedback-form input,
-      .feedback-form textarea,
-      .feedback-form select {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 15px;
-        font-size: 1rem;
-        border: 2px solid var(--accent);
-        border-radius: 5px;
-        outline: none;
-        transition: border-color var(--transition-speed);
-      }
-      .feedback-form input:focus,
-      .feedback-form textarea:focus,
-      .feedback-form select:focus {
-        border-color: var(--dark);
       }
       .feedback-form button {
         display: block;
